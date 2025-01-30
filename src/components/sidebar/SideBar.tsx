@@ -1,4 +1,5 @@
 import { useWindowDimensions } from '../../hooks/useWindowDimensions'
+import SideBarMenus from './SideBarMenu'
 
 const Sidebar = () => {
   const { width } = useWindowDimensions()
@@ -7,7 +8,11 @@ const Sidebar = () => {
     return null
   }
 
-  return <div className="sidebar">Sidebar</div>
+  return (
+    <div className="sidebar">
+      <SideBarMenus />
+    </div>
+  )
 }
 
 export default Sidebar
