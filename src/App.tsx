@@ -3,7 +3,7 @@ import Content from './components/Content'
 import LeftMenu from './components/LeftMenu'
 import Navigation from './components/Navigation'
 import RightMenu from './components/RightMenu'
-import Sidebar from './components/SideBar'
+import Sidebar from './components/sidebar/SideBar'
 
 function App() {
   return (

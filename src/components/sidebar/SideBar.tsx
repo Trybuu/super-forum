@@ -1,4 +1,4 @@
-import { useWindowDimensions } from '../hooks/useWindowDimensions'
+import { useWindowDimensions } from '../../hooks/useWindowDimensions'
 
 const Sidebar = () => {
   const { width } = useWindowDimensions()
