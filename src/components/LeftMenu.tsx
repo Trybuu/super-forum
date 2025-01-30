@@ -9,11 +9,15 @@ const LeftMenu = () => {
   const { width } = useWindowDimensions()
 
   useEffect(() => {
-    getCategories().then((categories: Array<Category>) => {
-      const cats = categories.map((cat) => <li key={cat.id}>{cat.name}</li>)
+    getCategories()
+      .then((categories: Array<Category>) => {
+        const cats = categories.map((cat) => <li key={cat.id}>{cat.name}</li>)
 
-      setCategories(<ul className="category">{cats}</ul>)
-    })
+        setCategories(<ul className="category">{cats}</ul>)
+      })
+      .catch((err) => {
+        console.error(err)
+      })
   }, [])
 
   if (width <= 768) {
