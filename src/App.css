@@ -24,11 +24,6 @@
   background-color: aliceblue;
 }
 
-.leftmenu {
-  grid-area: leftmenu;
-  background-color: skyblue;
-}
-
 .content {
   min-height: var(--min-screen-height);
   grid-area: content;

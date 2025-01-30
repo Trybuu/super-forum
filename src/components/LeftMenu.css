@@ -1,0 +1,4 @@
+.leftmenu {
+  grid-area: leftmenu;
+  background-color: skyblue;
+}
