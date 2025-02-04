@@ -3,7 +3,7 @@ import { AppState } from '../../store/AppState'
 import { useDispatch } from 'react-redux'
 import React, { useEffect } from 'react'
 import { UserProfileSetType } from '../../store/user/Reducer'
-import { FaUser } from 'react-icons/fa'
+import { FaRegistered, FaUser } from 'react-icons/fa'
 
 const SideBarMenus = () => {
   const user = useSelector((state: AppState) => state.user)
@@ -22,8 +22,14 @@ const SideBarMenus = () => {
   return (
     <React.Fragment>
       <ul>
-        <FaUser />
-        <span className="menu-name">{user?.userName}</span>
+        <li>
+          <FaUser />
+          <span className="menu-name">{user?.userName}</span>
+        </li>
+        <li>
+          <FaRegistered />
+          <span className="menu-name">Rejestracja</span>
+        </li>
       </ul>
     </React.Fragment>
   )
