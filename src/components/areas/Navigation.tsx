@@ -1,5 +1,5 @@
 import { FaBars } from 'react-icons/fa'
-import { useWindowDimensions } from '../hooks/useWindowDimensions'
+import { useWindowDimensions } from '../../hooks/useWindowDimensions'
 import React, { useState } from 'react'
 import ReactModal from 'react-modal'
 import SideBarMenus from './sidebar/SideBarMenu'

@@ -1,4 +1,4 @@
-const Content = () => {
+const Main = () => {
   // ErrorBoundary Test -----------------------------------
   const test = false
   if (test) throw new Error('Błąd w komponencie Main')
@@ -7,4 +7,4 @@ const Content = () => {
   return <main className="content">Część główna</main>
 }
 
-export default Content
+export default Main

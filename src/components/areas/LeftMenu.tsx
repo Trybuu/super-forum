@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import { useWindowDimensions } from '../hooks/useWindowDimensions'
-import Category from '../models/Category'
+import { useWindowDimensions } from '../../hooks/useWindowDimensions'
+import Category from '../../models/Category'
 import './LeftMenu.css'
-import { getCategories } from '../services/DataService'
+import { getCategories } from '../../services/DataService'
 
 const LeftMenu = () => {
   const [categories, setCategories] = useState<JSX.Element>(<p>Menu z lewej</p>)
