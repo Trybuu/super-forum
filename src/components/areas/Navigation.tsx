@@ -29,7 +29,7 @@ const Navigation = () => {
   }
 
   return (
-    <nav className="navigation">
+    <nav>
       {getMobileMenu()}
       <strong>SuperForum</strong>
     </nav>

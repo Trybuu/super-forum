@@ -1,7 +1,7 @@
 import LeftMenu from '../areas/LeftMenu'
 import Main from '../areas/main/Main'
 import Navigation from '../areas/Navigation'
-import RightMenu from '../areas/RightMenu'
+import RightMenu from '../areas/rightMenu/RightMenu'
 import Sidebar from '../areas/sidebar/SideBar'
 
 import './Home.css'
