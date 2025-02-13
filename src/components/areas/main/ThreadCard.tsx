@@ -5,6 +5,7 @@ import { FaEye, FaHeart, FaReplyAll } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 import './ThreadCard.css'
+import ThreadPointsBar from '../../ThreadPointsBar'
 
 interface ThreadCardProps {
   thread: Thread
@@ -38,26 +39,6 @@ const ThreadCard: React.FC<ThreadCardProps> = ({ thread }) => {
           {thread && thread.threadItems && thread.threadItems.length}
           <FaReplyAll style={{ marginLeft: '.25em' }} />
         </label>
-      )
-    } else {
-      return null
-    }
-  }
-
-  const getPointsNonMobile = () => {
-    if (width > 768) {
-      return (
-        <div className="threadcard-points">
-          <div className="threaded-points-item">
-            {thread.points || 0} <br />
-            <FaHeart />
-          </div>
-          <div className="threaded-points-item">
-            {thread && thread.threadItems && thread.threadItems.length}
-            <br />
-            <FaReplyAll />
-          </div>
-        </div>
       )
     } else {
       return null
@@ -106,7 +87,7 @@ const ThreadCard: React.FC<ThreadCardProps> = ({ thread }) => {
           </div>
         </div>
       </div>
-      {getPointsNonMobile()}
+      <ThreadPointsBar points={thread.points} />
     </section>
   )
 }

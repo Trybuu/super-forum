@@ -1,4 +1,5 @@
 import { getTimePastIfLessThanDay } from '../../../common/dates'
+import UserNameAndTime from './UserNameAndTime'
 
 interface ThreadHeaderProps {
   userName?: string
@@ -14,12 +15,7 @@ const ThreadHeader: React.FC<ThreadHeaderProps> = ({
   return (
     <div className="thread-header-container">
       <h3>{title}</h3>
-      <span>
-        <strong>{userName}</strong>
-        <label style={{ marginLeft: '1em' }}>
-          {lastModifiedOn ? getTimePastIfLessThanDay(lastModifiedOn) : ''}
-        </label>
-      </span>
+      <UserNameAndTime userName={userName} lastModifiedOn={lastModifiedOn} />
     </div>
   )
 }
