@@ -1,9 +1,11 @@
 import { useReducer } from 'react'
-import { isPasswordValid } from '../../common/validators/PasswordValidator'
 import ReactModal from 'react-modal'
 import { ModalProps } from '../types/ModalProps'
 import userReducer from './common/UserReducer'
 import { allowSubmit } from './common/Helpers'
+import PasswordComparison from './common/PasswordComparison'
+
+ReactModal.setAppElement('#root')
 
 const Registration: React.FC<ModalProps> = ({ isOpen, onClickToggle }) => {
   const [
@@ -31,16 +33,6 @@ const Registration: React.FC<ModalProps> = ({ isOpen, onClickToggle }) => {
     onClickToggle(e)
   }
 
-  const passwordsSame = (passwordVal: string, passwordConfirmVal: string) => {
-    if (passwordVal !== passwordConfirmVal) {
-      allowSubmit(dispatch, 'Hasła nie są takie same', true)
-      return false
-    } else {
-      allowSubmit(dispatch, '', false)
-      return true
-    }
-  }
-
   /**
    * PROCEDURY OBSŁUGI ZDARZEŃ ONCHANGE
    */
@@ -63,23 +55,6 @@ const Registration: React.FC<ModalProps> = ({ isOpen, onClickToggle }) => {
     }
   }
 
-  const onChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch({ type: 'password', payload: e.target.value })
-    const passwordCheck = isPasswordValid(e.target.value)
-
-    if (!passwordCheck.isValid) {
-      allowSubmit(dispatch, passwordCheck.message, true)
-      return
-    }
-
-    passwordsSame(passwordConfirm, e.target.value)
-  }
-
-  const onChangePasswordConfirm = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch({ type: 'passwordConfirm', payload: e.target.value })
-    passwordsSame(password, e.target.value)
-  }
-
   return (
     <ReactModal
       className="modal-menu"
@@ -99,23 +74,11 @@ const Registration: React.FC<ModalProps> = ({ isOpen, onClickToggle }) => {
             <input type="text" value={email} onChange={onChangeEmail} />
           </div>
 
-          <div>
-            <label>Hasło</label>
-            <input
-              type="password"
-              value={password}
-              onChange={onChangePassword}
-            />
-          </div>
-
-          <div>
-            <label>Powtórz hasło</label>
-            <input
-              type="password"
-              value={passwordConfirm}
-              onChange={onChangePasswordConfirm}
-            />
-          </div>
+          <PasswordComparison
+            dispatch={dispatch}
+            password={password}
+            passwordConfirm={passwordConfirm}
+          />
 
           <div className="form-buttons">
             <div className="form-btn-left">

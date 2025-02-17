@@ -1,4 +1,4 @@
-type PasswordTestResult = {
+export type PasswordTestResult = {
   message: string
   isValid: boolean
 }

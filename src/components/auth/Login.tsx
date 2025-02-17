@@ -6,6 +6,8 @@ import { allowSubmit } from './common/Helpers'
 import { useDispatch } from 'react-redux'
 import { UserProfileSetType } from '../../store/user/Reducer'
 
+ReactModal.setAppElement('#root')
+
 const Login: FC<ModalProps> = ({ isOpen, onClickToggle }) => {
   const [{ userName, password, resultMsg, isSubmitDisabled }, dispatch] =
     useReducer(userReducer, {
@@ -22,7 +24,7 @@ const Login: FC<ModalProps> = ({ isOpen, onClickToggle }) => {
       type: UserProfileSetType,
       payload: {
         id: 1,
-        userName: 'użytkownikTestowy',
+        userName: userName,
       },
     })
   }, [reduxDispatch])
